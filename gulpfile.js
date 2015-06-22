@@ -8,7 +8,7 @@ var SASSDOC_OPTIONS = {
 	dest: './sassdoc/',
 	verbose: true,
 	basePath: 'https://github.com/skoks/sassy-palette',
-	googleAnalytics: 'UA-XXXXXXXX-X',
+	googleAnalytics: 'UA-64328477-1',
 };
 
 gulp.task('clean', function () {
