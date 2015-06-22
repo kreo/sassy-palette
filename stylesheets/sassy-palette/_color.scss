@@ -1,0 +1,36 @@
+///
+/// Get a color from a  palette
+///
+/// @param {String} $name - color name
+///
+/// @param {String} $tone - color tone
+///
+/// @param {Map} $palette - color palette
+///
+/// @return {Color}
+///
+/// @throw "Color '#{$name}'' is not found"
+///
+/// @throw "Color tone '#{$tone}' is not found"
+///
+/// @example
+///   sp-color('purple')		// #9c27b0
+///   sp-color('red', '100')	// #ffcdd2
+///   sp-color('pink', 'X')		// ()
+///
+
+@function sp-color($name, $tone: '500', $palette: $palette) {
+	@if type-of($name) == 'string' and
+	type-of($tone) == 'string' and
+	type-of($palette) == 'map' {
+		@if not map-has-key($palette, $name) {
+			@warn "Color '#{$name}'' is not found";
+		}
+
+		@if not map-deep-get($palette, $name, $tone) {
+			@warn "Color tone '#{$tone}' is not found";
+		}
+
+		@return map-deep-get($palette, $name, $tone);
+	}
+}
