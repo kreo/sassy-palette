@@ -1,0 +1,25 @@
+{
+  "name": "sassy-palette",
+  "version": "0.1.0",
+  "authors": [
+    "Vova Skok <skok@vova.io>"
+  ],
+  "description": "Sass color palette",
+  "main": "sassy-palette.scss",
+  "keywords": [
+    "color",
+    "palette",
+    "Sass",
+    "CSS",
+    "scss"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "homepage": "https://github.com/Skoks/sassy-palette"
+}
