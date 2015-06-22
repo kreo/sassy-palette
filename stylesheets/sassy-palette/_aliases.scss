@@ -1,9 +1,0 @@
-///
-/// Alias for `sp-color` function
-///
-/// @alias sp-color
-///
-
-@function color($name, $tone: '500', $palette: $palette) {
-	@return sp-color($name, $tone: '500', $palette: $palette);
-}
