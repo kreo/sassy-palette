@@ -1,0 +1,17 @@
+///
+/// Get random value from the list
+///
+/// @param {List} $list - list of values
+///
+/// @return {*}
+///
+/// @example
+///   random-of(('a', 'b', 'c')) // 'b'
+///   random-of(('1', '2', ('a', 'b', 'c'))) // ('a', 'b', 'c')
+///
+
+@function random-of($list) {
+	@if type-of($list) == 'list' {
+		@return nth($list, random(length($list)));
+	}
+}
