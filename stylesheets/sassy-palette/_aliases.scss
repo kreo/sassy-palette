@@ -7,3 +7,14 @@
 @function color($name, $tone: '500', $palette: $palette) {
 	@return sp-color($name, $tone: '500', $palette: $palette);
 }
+
+///
+/// Alias for `sp-random-of` function
+///
+/// @alias sp-random-of
+///
+
+@function random-of($list) {
+	@return sp-random-of($list);
+}
+
