@@ -32,5 +32,7 @@
 		}
 
 		@return map-deep-get($palette, $name, $tone);
+	} @else {
+		@return null;
 	}
 }
