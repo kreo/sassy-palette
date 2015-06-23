@@ -1,0 +1,23 @@
+///
+/// Get random color from predefined palette
+///
+/// @param {Map} $palette - colro palette
+///
+/// @return {color}
+///
+/// @example
+///   sp-random-color() // #ffcc80
+///   sp-random-color() // #283593
+///
+
+@function sp-random-color($palette: $palette) {
+	@if type-of($palette) == 'map' {
+		$name: sp-random-of(map-keys($palette));
+		$color-tones: map-keys(map-get($palette, $name));
+		$tone: sp-random-of($color-tones);
+
+		@return sp-color($name, $tone);
+	} @else {
+		@return null;
+	}
+}
