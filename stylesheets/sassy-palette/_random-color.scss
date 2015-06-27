@@ -41,7 +41,7 @@
 			$name: sp-random-of(map-keys($palette));
 			@each $exception in $exceptions {
 				@if $name == $exception {
-					@return call(sp-random-color, $color, $tone, $global-palette);
+					$name: sp-random-color($color, $tone, $global-palette);
 				}
 			}
 			@return $name;
@@ -50,3 +50,4 @@
 		@return null;
 	}
 }
+
