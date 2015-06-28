@@ -1,8 +1,8 @@
 ///
 /// Get random color
 ///
-/// @param {Null|Map|List} $color [null] - color name
-/// @param {Null|Map|List} $tone [null] - color tone
+/// @param {Null|Map|List} $colors [null] - color name
+/// @param {Null|Map|List} $tones [null] - color tone
 /// @param {Map} $global-palette [$global-palette] - color palette
 ///
 /// @return {color}
@@ -13,41 +13,53 @@
 ///
 /// @todo create separate `exceptions` function
 ///
-/// @todo add `$color`/`$tone` options for `exceptions` function
+/// @todo add `$colors`/`$tones` options for `exceptions` function
 ///
 
-@function sp-random-color($color: null, $tone: null, $global-palette: $palette) {
+@function sp-random-color($colors: 'all', $tones: 'all', $global-palette: $palette) {
 	@if type-of($global-palette) == 'map' {
-		@if $color == null and
-		$tone == null {
-			$name: sp-random-of(map-keys($global-palette));
-			$color-tones: map-keys(map-get($global-palette, $name));
-			$tone: sp-random-of($color-tones);
+		@if $colors == 'all' and
+		$tones == 'all' {
+			$color-name: sp-random-of(map-keys($global-palette));
+			$tones: map-keys(map-get($global-palette, $color-name));
+			$tone: sp-random-of($tones);
 
-			@return sp-color($name, $tone);
+			@return sp-color($color-name, $tone);
 		}
-
-		@if $color == 'all' {
-			$name: sp-random-of(map-keys($global-palette));
-			@return $name;
+		@if $colors == 'all' {
+			// @if type-of($tones) == 'list'
+			// @if type-of($tones) == 'map'
+			// @if type-of($tones) == 'string'
 		}
-		@if type-of($color) == 'list' {
-			$name: sp-random-of($color);
-			@return $name;
+		@if type-of($colors) == 'string' {
+			// @if $tones == 'all'
+			// @if type-of($tones) == 'list'
+			// @if type-of($tones) == 'map'
 		}
-		@if type-of($color) == 'map' and
-		map-get($color, 'exceptions') {
-			$exceptions: map-get($color, 'exceptions');
-			$name: sp-random-of(map-keys($palette));
+		@if type-of($colors) == 'list' {
+			$color-name: sp-random-of($colors);
+			@return $color-name;
+			// @if $tones == 'all'
+			// @if type-of($tones) == 'list'
+			// @if type-of($tones) == 'map'
+			// @if type-of($tones) == 'string'
+		}
+		@if type-of($colors) == 'map' and
+		map-get($colors, 'exceptions') {
+			$exceptions: map-get($colors, 'exceptions');
+			$color-name: sp-random-of(map-keys($palette));
 			@each $exception in $exceptions {
-				@if $name == $exception {
-					$name: sp-random-color($color, $tone, $global-palette);
+				@if $color-name == $exception {
+					$color-name: sp-random-color($colors, $tones, $global-palette);
 				}
 			}
-			@return $name;
+			// @if $tones == 'all'
+			// @if type-of($tones) == 'list'
+			// @if type-of($tones) == 'map'
+			// @if type-of($tones) == 'string'
+			@return $color-name;
 		}
 	} @else {
 		@return null;
 	}
 }
-
