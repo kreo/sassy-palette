@@ -1,0 +1,17 @@
+@function sp-random-color-all($tones, $global-palette) {
+	$color-name: sp-random-of(map-keys($global-palette));
+	@debug $color-name;
+	@debug type-of($tones);
+	@if type-of($tones) == 'list' {
+		$tones-map: map-get($global-palette, $color-name);
+		@debug $tones-map;
+		@debug $tones;
+		@if map-has-key($tones-map, sp-random-of($tones)) {
+			@return sp-color($color-name, sp-random-of($tones), $global-palette);
+		}
+		@debug $tones;
+		@return null;
+	}
+	// @if type-of($tones) == 'map'
+	// @if type-of($tone) == 'string'
+}
