@@ -1,19 +1,15 @@
 ///
 /// Get random color
 ///
-/// @param {Null|Map|List} $colors [null] - color name
-/// @param {Null|Map|List} $tones [null] - color tone
+/// @param {Map|List|String} $colors ['all'] - color name
+/// @param {Map|List|String} $tones ['all'] - color tone
 /// @param {Map} $global-palette [$global-palette] - color palette
 ///
-/// @return {color}
+/// @return {Color}
 ///
 /// @example
 ///   sp-random-color() // #ffcc80
 ///   sp-random-color() // #283593
-///
-/// @todo create separate `exceptions` function
-///
-/// @todo add `$colors`/`$tones` options for `exceptions` function
 ///
 
 @function sp-random-color($colors: 'all', $tones: 'all', $global-palette: $palette) {
@@ -62,4 +58,24 @@
 	} @else {
 		@return null;
 	}
+}
+
+ECHO {
+	result: sp-random-color-all(('exceptions': ('500')), $palette);
+	// result: sp-random-color-all(('exceptions': 'green', 'blue') );
+	// result: sp-random-color-all(('500', '600'), $palette);
+	// result: sp-random-color-all(('500', '600'), $palette);
+	// result: sp-random-color-all(('500', '600'), $palette);
+	// result: sp-random-color-all(('500', '600'), $palette);
+	// result: sp-random-color-all(('500', '600'), $palette);
+	// result: sp-random-color-all(('500', '600'), $palette);
+	// result: sp-random-color-all(('50', '100'), $palette);
+	// result: sp-random-color-all(('50', '100'), $palette);
+	// result: sp-random-color-all(('50', '100'), $palette);
+	// result: sp-random-color-all(('50', '100'), $palette);
+
+	// result: sp-random-color();
+	// result: sp-random-color();
+	// result: sp-random-color(('red', 'green', 'blue'));
+	// result: sp-random-color(('exceptions': ('red', 'green', 'blue')));
 }
