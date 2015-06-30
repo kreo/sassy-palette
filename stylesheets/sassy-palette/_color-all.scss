@@ -7,15 +7,15 @@
 /// @return {Color|Null}
 ///
 /// @example
-///   sp-random-color-all(('exceptions': ('500')), $palette); // #ffab40
-///   sp-random-color-all('600', $palette); // #546e7a
-///   sp-random-color-all(('500', '600', '700'), $palette); //  #8bc34a
+///   sp-color-all(('exceptions': ('500')), $palette); // #ffab40
+///   sp-color-all('600', $palette); // #546e7a
+///   sp-color-all(('500', '600', '700'), $palette); //  #8bc34a
 ///
 
-@function sp-random-color-all($tones, $global-palette) {
+@function sp-color-all($tones, $global-palette: $palette) {
 	$color-name: sp-random-of(map-keys($global-palette));
+	$tones-map: map-get($global-palette, $color-name);
 	@if type-of($tones) == 'list' {
-		$tones-map: map-get($global-palette, $color-name);
 		@if map-has-key($tones-map, sp-random-of($tones)) {
 			@return sp-color($color-name, sp-random-of($tones), $global-palette);
 		}
@@ -27,12 +27,16 @@
 		// Get random tone of a chosen $color-name
 		$tone: sp-random-of(map-keys(map-get($global-palette, $color-name)));
 		@each $exception in $exceptions {
+			// If chosen tone is exception, then chose a tone again
 			@if $tone == $exception {
-				$tone: call('sp-random-color-all', $tones, $global-palette);
+				$tone: call('sp-color-all', $tones, $global-palette);
 			}
 		}
 		@return sp-color($color-name, $tone);
 	}
-	// @if type-of($tone) == 'string'
-	@return true;
+	@if type-of($tones) == 'string' and
+	map-has-key($tones-map, $tones) {
+		@return map-get($tones-map, $tones);
+	}
+	@return null;
 }
