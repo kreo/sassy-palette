@@ -1,8 +1,10 @@
 ///
-/// Get random color tone, when color name is defined
+/// Get a tone, when color name is 'all'
+///
+/// @private
 ///
 /// @param {List|Map|String} $tones - color tone
-/// @param {Map} $global-palette - global color palette name
+/// @param {Map} $global-palette - global color palette
 ///
 /// @return {Color|Null}
 ///
@@ -16,10 +18,7 @@
 	$color-name: sp-random-of(map-keys($global-palette));
 	$tones-map: map-get($global-palette, $color-name);
 	@if type-of($tones) == 'list' {
-		@if map-has-key($tones-map, sp-random-of($tones)) {
-			@return sp-color($color-name, sp-random-of($tones), $global-palette);
-		}
-		@return null;
+		@return sp-tone-list($color-name, $tones-map, $tones, $global-palette);
 	}
 	@if type-of($tones) == 'map' and
 	map-get($tones, 'exceptions') {
