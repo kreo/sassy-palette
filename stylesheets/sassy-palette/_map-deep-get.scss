@@ -1,8 +1,9 @@
 ///
 /// Fetch nested keys
 ///
-/// @param {Map} $map - Map
+/// @public
 ///
+/// @param {Map} $map - Map
 /// @param {Arglist} $keys - Keys to fetch
 ///
 /// @return {*}
@@ -12,6 +13,5 @@
 	@each $key in $keys {
 		$map: map-get($map, $key);
 	}
-
 	@return $map;
 }
