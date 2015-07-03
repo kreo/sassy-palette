@@ -1,11 +1,11 @@
 ///
-/// Get a random tone value from a list of tones
+/// Get a random tone from a list of tones
 ///
 /// @access private
 ///
 /// @param {String} $color-name - color name
-/// @param {Map} $tones-map - tones for `$color-name`
-/// @param {List} $tones - tones
+/// @param {Map} $tones-map - tones of `$color-name`
+/// @param {List} $tones - multiple tones to choose from
 /// @param {Map} $global-palette - global color palette
 ///
 /// @return {Color|Null}
