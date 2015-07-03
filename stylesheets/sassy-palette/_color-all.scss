@@ -24,9 +24,8 @@
 	map-get($tones, 'exceptions') {
 		@return sp-tone-map($color-name, $tones-map, $tones, $global-palette);
 	}
-	@if type-of($tones) == 'string' and
-	map-has-key($tones-map, $tones) {
-		@return map-get($tones-map, $tones);
+	@if type-of($tones) == 'string' {
+		@return sp-tone-string($color-name, $tones-map, $tones, $global-palette);
 	}
 	@return null;
 }

@@ -1,0 +1,20 @@
+///
+/// Get defined tone
+///
+/// @access private
+///
+/// @param {String} $color-name - color name
+/// @param {Map} $tones-map - tones for `$color-name`
+/// @param {String} $tones - tone
+/// @param {Map} $global-palette - global color palette
+///
+/// @return {Color|Null}
+///
+
+@function sp-tone-string($color-name, $tones-map, $tones, $global-palette) {
+	@if map-has-key($tones-map, $tones) {
+		@return sp-color($color-name, $tones, $global-palette);
+	}
+	@return null;
+}
+
