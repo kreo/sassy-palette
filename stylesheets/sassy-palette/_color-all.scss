@@ -22,16 +22,7 @@
 	}
 	@if type-of($tones) == 'map' and
 	map-get($tones, 'exceptions') {
-		$exceptions: map-get($tones, 'exceptions');
-		// Get random tone of a chosen $color-name
-		$tone: sp-random-of(map-keys(map-get($global-palette, $color-name)));
-		@each $exception in $exceptions {
-			// If chosen tone is exception, then chose a tone again
-			@if $tone == $exception {
-				$tone: call('sp-color-all', $tones, $global-palette);
-			}
-		}
-		@return sp-color($color-name, $tone);
+		@return sp-tone-map($color-name, $tones-map, $tones, $global-palette);
 	}
 	@if type-of($tones) == 'string' and
 	map-has-key($tones-map, $tones) {

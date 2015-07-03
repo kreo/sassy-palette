@@ -1,0 +1,29 @@
+///
+/// Get a random tone value from a map of tones
+///
+/// @access private
+///
+/// @param {String} $color-name - color name
+/// @param {Map} $tones-map - tones for `$color-name`
+/// @param {List} $tones - tones
+/// @param {Map} $global-palette - global color palette
+///
+/// @return {Color|Null}
+///
+
+@function sp-tone-map($color-name, $tones-map, $tones, $global-palette) {
+	$exceptions: map-get($tones, 'exceptions');
+	// Get a random tone of a chosen $color-name
+	$tone: sp-random-of(map-keys(map-get($global-palette, $color-name)));
+	@if type-of($tone) == 'string' {
+		@each $exception in $exceptions {
+			// If chosen tone is exception, then chose a tone again
+			@if $tone == $exception {
+				$tone: call('sp-tone-map', $color-name, $tones-map, $tones, $global-palette);
+			}
+		}
+		@return sp-color($color-name, $tone);
+	} @else {
+		@return null;
+	}
+}
