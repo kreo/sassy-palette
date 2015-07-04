@@ -1,0 +1,16 @@
+///
+/// Get a random tone from 'all' tone values
+///
+/// @access private
+///
+/// @param {String} $color-name - color name
+/// @param {Map} $tones-map - tones of `$color-name`
+/// @param {String} $tones - all tone values
+/// @param {Map} $global-palette - global color palette
+///
+/// @return {Color}
+///
+
+@function sp-tone-all($color-name, $tones-map, $tones, $global-palette) {
+	@return sp-color($color-name, random-of(map-keys($tones-map)), $global-palette);
+}

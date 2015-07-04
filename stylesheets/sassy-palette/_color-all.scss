@@ -1,5 +1,5 @@
 ///
-/// Get a tone, when color name is 'all'
+/// Get a random color from 'all' color names
 ///
 /// @access private
 ///
@@ -11,12 +11,16 @@
 /// @example
 ///   sp-color-all(('exceptions': ('500')), $palette); // #ffab40
 ///   sp-color-all('600', $palette); // #546e7a
-///   sp-color-all(('500', '600', '700'), $palette); //  #8bc34a
+///   sp-color-all(('500', '600', '700'), $palette); // #8bc34a
+///   sp-color-all('all', $palette); // #ffe082
 ///
 
 @function sp-color-all($tones, $global-palette: $palette) {
 	$color-name: sp-random-of(map-keys($global-palette));
 	$tones-map: map-get($global-palette, $color-name);
+	@if $tones == 'all' {
+		@return sp-tone-all($color-name, $tones-map, $tones, $global-palette);
+	}
 	@if type-of($tones) == 'list' {
 		@return sp-tone-list($color-name, $tones-map, $tones, $global-palette);
 	}
