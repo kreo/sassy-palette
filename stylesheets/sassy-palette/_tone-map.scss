@@ -12,20 +12,18 @@
 ///
 
 @function sp-tone-map($color-name, $tones-map, $tones, $global-palette) {
-	@if map-has-key($tones, 'exceptions') {
-		$exceptions: map-get($tones, 'exceptions');
-		// Get a random tone name of a $color-name
-		$tone: sp-random-of(map-keys(map-get($global-palette, $color-name)));
-		@if type-of($tone) == 'string' {
-			@each $exception in $exceptions {
-				// If a chosen tone name is exception,
-				// then run this function again
-				@if $tone == $exception {
-					$tone: call('sp-tone-map', $color-name, $tones-map, $tones, $global-palette);
-				}
+	$exceptions: map-get($tones, 'exceptions');
+	// Get a random tone name of a $color-name
+	$tone: sp-random-of(map-keys(map-get($global-palette, $color-name)));
+	@if type-of($tone) == 'string' {
+		@each $exception in $exceptions {
+			// If a chosen tone name is exception,
+			// then run this function again
+			@if $tone == $exception {
+				$tone: call('sp-tone-map', $color-name, $tones-map, $tones, $global-palette);
 			}
-			@return sp-color($color-name, $tone);
 		}
+		@return sp-color($color-name, $tone);
 	} @else {
 		@return null;
 	}
