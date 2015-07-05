@@ -10,7 +10,31 @@
 @import 'sassy-palette/tone-all';
 @import 'sassy-palette/color-all';
 // @import 'sassy-palette/color-list';
-// @import 'sassy-palette/color-map';
+@import 'sassy-palette/color-map';
 // @import 'sassy-palette/color-string';
 @import 'sassy-palette/random-color';
 @import 'sassy-palette/aliases';
+
+
+echo {
+	// result: sp-color-map( 'all', $palette );
+	// result: sp-random-color( ('exceptions': ( 'black', 'white') ), '500' );
+	// result: sp-color-map( ('exceptions': ( 'orange', 'deep-orange', 'brown', 'grey', 'blue-grey') ), '500' );
+	// result: sp-color-map( ('exceptions': ( 'pink', 'purple', 'deep-purple', 'green', 'light-green', 'lime', 'yellow', 'amber', 'orange', 'deep-orange', 'brown', 'grey', 'blue-grey') ), '500' );
+	result: sp-color-map( ('exceptions': ( 'pink', 'purple', 'deep-purple') ), 'all' );
+	result: sp-color-map( ('exceptions': ( 'pink', 'purple', 'deep-purple') ), 'all' );
+	// result: sp-random-color( ('exceptions': ( 'pink', 'purple', 'deep-purple') ), 'all' );
+	// result: sp-color-map( ('exceptions': ( 'pink', 'purple', 'deep-purple', 'green', 'light-green', 'lime', 'yellow', 'amber', 'orange', 'deep-orange', 'brown', 'grey', 'blue-grey') ), '500' );
+	// result: sp-color-map( ('exceptions': ( 'pink', 'purple', 'deep-purple', 'green', 'light-green', 'lime', 'yellow', 'amber', 'orange', 'deep-orange', 'brown', 'grey', 'blue-grey') ), '500' );
+	// result: sp-color-all( 'all', $palette );
+	// result: sp-color-all( ('100', '200'), $palette );
+	// result: sp-color-all( ('100', '200'), $palette );
+	// result: sp-color-all( ('100', '200'), $palette );
+	// result: sp-color-all( ('100', '200'), $palette );
+	// seperator: ___________________;
+	// result: sp-color-all( ('exceptions': ('100', '200') ), $palette );
+	// result: sp-color-all( ('exceptions': ('100', '200') ), $palette );
+	// result: sp-color-all( ('exceptions': ('100', '200') ), $palette );
+	// result: sp-color-all( ('exceptions': ('100', '200') ), $palette );
+	// result: sp-color-all( ('exceptions': ('100', '200') ), $palette );
+}
