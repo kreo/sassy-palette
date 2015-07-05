@@ -12,5 +12,8 @@
 ///
 
 @function sp-tone-all($color-name, $tones-map, $tones, $global-palette) {
-	@return sp-color($color-name, random-of(map-keys($tones-map)), $global-palette);
+	@if type-of($tones-map) == 'map' {
+		@return sp-color($color-name, random-of(map-keys($tones-map)), $global-palette);
+	}
+	@return null;
 }
