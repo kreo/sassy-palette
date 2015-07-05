@@ -33,16 +33,15 @@
 			// @if type-of($tones) == 'map'
 		}
 		@if type-of($colors) == 'list' {
-			$color-name: sp-random-of($colors);
-			@return $color-name;
+			// $color-name: sp-random-of($colors);
+			// @return $color-name;
 			// @if $tones == 'all'
 			// @if type-of($tones) == 'list'
 			// @if type-of($tones) == 'map'
 			// @if type-of($tones) == 'string'
 		}
-		@if type-of($colors) == 'map' and
-		map-get($colors, 'exceptions') {
-			@return sp-color-map($tones, $global-palette);
+		@if type-of($colors) == 'map' {
+			@return sp-color-map($colors, $tones, $global-palette);
 		}
 	} @else {
 		@return null;
