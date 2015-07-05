@@ -12,8 +12,10 @@
 ///
 
 @function sp-tone-string($color-name, $tones-map, $tones, $global-palette) {
-	@if map-has-key($tones-map, $tones) {
-		@return sp-color($color-name, $tones, $global-palette);
+	@if type-of($tones-map) == 'map' {
+		@if map-has-key($tones-map, $tones) {
+			@return sp-color($color-name, $tones, $global-palette);
+		}
 	}
 	@return null;
 }
