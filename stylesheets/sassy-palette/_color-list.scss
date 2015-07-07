@@ -1,0 +1,40 @@
+///
+/// Get a random color from a list
+///
+/// @access private
+///
+/// @param {List} $colors - map of color exceptions
+/// @param {List|Map|String} $tones - color tone
+/// @param {Map} $global-palette - global color palette
+///
+/// @return {Color|Null}
+///
+/// @example
+///   sp-color-list(('exceptions': ('red', 'green', 'orange')), '500', $palette); // #ffab40
+///
+
+@function sp-color-list($colors, $tones, $global-palette: $palette) {
+	// Get a random color name from a list
+	// Check if current color name exists
+	$color-name: sp-random-of($colors);
+	@if map-has-key($global-palette, $color-name) {
+	} @else {
+		@return null;
+	}
+	// Get tones map from a $color-name
+	$tones-map: map-get($global-palette, $color-name);
+	@if $tones == 'all' {
+		@return sp-tone-all($color-name, $tones-map, $tones, $global-palette);
+	}
+	@if type-of($tones) == 'list' {
+		@return sp-tone-list($color-name, $tones-map, $tones, $global-palette);
+	}
+	@if type-of($tones) == 'map' and
+	map-get($tones, 'exceptions') {
+		@return sp-tone-map($color-name, $tones-map, $tones, $global-palette);
+	}
+	@if type-of($tones) == 'string' {
+		@return sp-tone-string($color-name, $tones-map, $tones, $global-palette);
+	}
+	@return null;
+}
