@@ -16,21 +16,11 @@
 
 @function sp-random-color($colors: 'all', $tones: 'all', $global-palette: $palette) {
 	@if type-of($global-palette) == 'map' {
-		// @if $colors == 'all' and
-		// $tones == 'all' {
-		// 	$color-name: sp-random-of(map-keys($global-palette));
-		// 	$tones: map-keys(map-get($global-palette, $color-name));
-		// 	$tone: sp-random-of($tones);
-
-		// 	@return sp-color($color-name, $tone);
-		// }
 		@if $colors == 'all' {
 			@return sp-color-all($tones, $global-palette);
 		}
 		@if type-of($colors) == 'string' {
-			// @if $tones == 'all'
-			// @if type-of($tones) == 'list'
-			// @if type-of($tones) == 'map'
+			@return sp-color-string($colors, $tones, $global-palette);
 		}
 		@if type-of($colors) == 'list' {
 			@return sp-color-list($colors, $tones, $global-palette);
