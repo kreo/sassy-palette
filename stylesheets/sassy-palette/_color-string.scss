@@ -1,0 +1,36 @@
+///
+/// Get a color name
+///
+/// @access private
+///
+/// @param {List|Map|String} $tones - color tone
+/// @param {Map} $global-palette - global color palette
+///
+/// @return {Color|Null}
+///
+/// @example
+///   sp-color-string( 'red', 'all', $palette); // #f44336
+///   sp-color-string('green', ('100', '200'), $palette); // #c8e6c9
+///
+
+@function sp-color-string($colors, $tones, $global-palette: $palette) {
+	@if not map-has-key($global-palette, $colors) {
+		@return null;
+	}
+	$color-name: $colors;
+	$tones-map: map-get($global-palette, $color-name);
+	@if $tones == 'all' {
+		@return sp-tone-all($color-name, $tones-map, $tones, $global-palette);
+	}
+	@if type-of($tones) == 'list' {
+		@return sp-tone-list($color-name, $tones-map, $tones, $global-palette);
+	}
+	@if type-of($tones) == 'map' and
+	map-get($tones, 'exceptions') {
+		@return sp-tone-map($color-name, $tones-map, $tones, $global-palette);
+	}
+	@if type-of($tones) == 'string' {
+		@return sp-tone-string($color-name, $tones-map, $tones, $global-palette);
+	}
+	@return null;
+}
