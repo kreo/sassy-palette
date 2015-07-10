@@ -19,7 +19,7 @@
 ///   sp-color('pink', 'X')		// ()
 ///
 
-@function sp-color($name, $tone: '500', $palette: $palette) {
+@function sp-color($name, $tone, $palette: $palette) {
 	@if type-of($name) == 'string' and
 	type-of($tone) == 'string' and
 	type-of($palette) == 'map' {
