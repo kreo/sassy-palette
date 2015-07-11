@@ -19,18 +19,6 @@
 	}
 	$color-name: $colors;
 	$tones-map: map-get($global-palette, $color-name);
-	@if $tones == 'all' {
-		@return sp-tone-all($color-name, $tones-map, $tones, $global-palette);
-	}
-	@if type-of($tones) == 'list' {
-		@return sp-tone-list($color-name, $tones-map, $tones, $global-palette);
-	}
-	@if type-of($tones) == 'map' and
-	map-get($tones, 'exceptions') {
-		@return sp-tone-map($color-name, $tones-map, $tones, $global-palette);
-	}
-	@if type-of($tones) == 'string' {
-		@return sp-tone-string($color-name, $tones-map, $tones, $global-palette);
-	}
-	@return null;
+
+	@return sp-tones($color-name, $tones-map, $tones, $global-palette);
 }
