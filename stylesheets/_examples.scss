@@ -10,4 +10,7 @@ Sassy-palette {
 	color-map-tone-map: sp-random-color( ('exceptions': ('red', 'deep-purple') ), ('exceptions': ('500', '600')));
 	color-string-tone-list: sp-random-color('red', ('800', '900'));
 	color-string-tone-map: sp-random-color('red', ('exceptions': ('100', '200')));
+	color-list: sp-random-color(('red', 'green'), '500');
+	color-list-tone-list: sp-random-color(('red', 'green'), ('100', '200'));
+	color-list-tone-map: sp-random-color(('red', 'green'), ('exceptions': ('100', '200')));
 }
