@@ -10,18 +10,17 @@
 /// @return {Color|Null}
 ///
 /// @example
-///   sp-color-list(('exceptions': ('red', 'green', 'orange')), '500', $palette); // #ffab40
+///   sp-color-list(('red', 'green', 'orange'), '500', $palette); // #ffab40
 ///
 
 @function sp-color-list($colors, $tones, $global-palette: $palette) {
 	// Get a random color name from a list
-	// Check if current color name exists
 	$color-name: sp-random-of($colors);
+	// Check if current color name exists
 	@if map-has-key($global-palette, $color-name) {
-	} @else {
-		@return null;
+		// Get tones map from a $color-name
+		$tones-map: map-get($global-palette, $color-name);
+		@return sp-tones($color-name, $tones-map, $tones, $global-palette);
 	}
-	// Get tones map from a $color-name
-	$tones-map: map-get($global-palette, $color-name);
-	@return sp-tones($color-name, $tones-map, $tones, $global-palette);
+	@return null;
 }
