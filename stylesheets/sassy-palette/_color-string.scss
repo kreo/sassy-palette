@@ -19,6 +19,5 @@
 	}
 	$color-name: $colors;
 	$tones-map: map-get($global-palette, $color-name);
-
 	@return sp-tones($color-name, $tones-map, $tones, $global-palette);
 }
