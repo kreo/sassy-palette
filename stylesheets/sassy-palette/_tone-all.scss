@@ -8,7 +8,7 @@
 /// @param {String} $tones - all tone values
 /// @param {Map} $global-palette - global color palette
 ///
-/// @return {Color}
+/// @return {Color|Null}
 ///
 
 @function sp-tone-all($color-name, $tones-map, $tones, $global-palette) {
