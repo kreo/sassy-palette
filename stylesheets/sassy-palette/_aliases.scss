@@ -6,8 +6,8 @@
 /// @alias sp-color
 ///
 
-@function color($name, $tone: '500', $palette: $palette) {
-	@return sp-color($name, $tone: '500', $palette: $palette);
+@function color($name, $tone: '500', $global-palette: $palette) {
+	@return sp-color($name, $tone, $palette);
 }
 
 ///
@@ -22,3 +22,14 @@
 	@return sp-random-of($list);
 }
 
+///
+/// Alias for `sp-color-random` function
+///
+/// @access public
+///
+/// @alias sp-color-random
+///
+
+@function color-random($colors: 'all', $tones: 'all', $global-palette: $palette) {
+	@return sp-color-random($colors, $tones, $global-palette);
+}
