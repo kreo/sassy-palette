@@ -24,13 +24,11 @@
 	type-of($tone) == 'string' and
 	type-of($global-palette) == 'map' {
 		@if not map-has-key($global-palette, $name) {
-			@warn "Color '#{$name}'' is not found";
+			@warn "#{$name} color is not found";
 		}
-
 		@if not map-deep-get($global-palette, $name, $tone) {
-			@warn "Color tone '#{$tone}' is not found";
+			@warn "#{$tone} color tone is not found";
 		}
-
 		@return map-deep-get($global-palette, $name, $tone);
 	} @else {
 		@return null;
