@@ -13,13 +13,10 @@
 
 @function sp-tone-map($color-name, $tones-map, $tones, $global-palette) {
 	$exceptions: map-get($tones, 'exceptions');
-	// @debug $color-name;
-	// @debug map-get($global-palette, $color-name);
-
-	// Get a random tone name of a $color-name
 	// If not `null` is a work around for Sass error,
 	// which appers after multiple `call` functions
 	@if map-get($global-palette, $color-name) != null {
+		// Get a random tone name of a $color-name
 		$tone: sp-random-of(map-keys(map-get($global-palette, $color-name)));
 		@if type-of($tone) == 'string' {
 			@each $exception in $exceptions {
