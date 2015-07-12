@@ -10,11 +10,11 @@
 /// @return {Color}
 ///
 /// @example
-///   sp-random-color() // #ffcc80
-///   sp-random-color('all', ('exceptions': ('300', '200', '100'))) // #283593
+///   sp-color-random() // #ffcc80
+///   sp-color-random('all', ('exceptions': ('300', '200', '100'))) // #283593
 ///
 
-@function sp-random-color($colors: 'all', $tones: 'all', $global-palette: $palette) {
+@function sp-color-random($colors, $tones, $global-palette) {
 	@if type-of($global-palette) == 'map' {
 		@if $colors == 'all' {
 			@return sp-color-all($tones, $global-palette);

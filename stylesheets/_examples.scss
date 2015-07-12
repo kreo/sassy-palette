@@ -1,16 +1,16 @@
 Sassy-palette {
-	color: sp-color('red', '900');
-	color-all-tone-string: sp-random-color('all', '500');
-	color-all-tone-list: sp-random-color('all', ('100', '200'));
-	color-all-tone-map: sp-random-color('all', ('exceptions': ('700', '800', '900')));
-	color-all-tone-all: sp-random-color('all', 'all');
-	color-map: sp-random-color(('exceptions': ('green', 'blue')), '500');
-	color-map-tone-all: sp-random-color(('exceptions': ('red', 'deep-purple') ), 'all');
-	color-map-color-list: sp-random-color(('exceptions': ('green', 'blue')), ('800', '900'));
-	color-map-tone-map: sp-random-color( ('exceptions': ('red', 'deep-purple') ), ('exceptions': ('500', '600')));
-	color-string-tone-list: sp-random-color('red', ('800', '900'));
-	color-string-tone-map: sp-random-color('red', ('exceptions': ('100', '200')));
-	color-list: sp-random-color(('red', 'green'), '500');
-	color-list-tone-list: sp-random-color(('red', 'green'), ('100', '200'));
-	color-list-tone-map: sp-random-color(('red', 'green'), ('exceptions': ('100', '200')));
+	color: sp-color('red', '900', $palette);
+	color-all-tone-string: sp-color-random('all', '500', $palette);
+	color-all-tone-list: sp-color-random('all', ('100', '200'), $palette);
+	color-all-tone-map: sp-color-random('all', ('exceptions': ('700', '800', '900')), $palette);
+	color-all-tone-all: sp-color-random('all', 'all', $palette);
+	color-map: sp-color-random(('exceptions': ('green', 'blue')), '500', $palette);
+	color-map-tone-all: sp-color-random(('exceptions': ('red', 'deep-purple') ), 'all', $palette);
+	color-map-color-list: sp-color-random(('exceptions': ('green', 'blue')), ('800', '900'), $palette);
+	color-map-tone-map: sp-color-random( ('exceptions': ('red', 'deep-purple') ), ('exceptions': ('500', '600')), $palette);
+	color-string-tone-list: sp-color-random('red', ('800', '900'), $palette);
+	color-string-tone-map: sp-color-random('red', ('exceptions': ('100', '200')), $palette);
+	color-list: sp-color-random(('red', 'green'), '500', $palette);
+	color-list-tone-list: sp-color-random(('red', 'green'), ('100', '200'), $palette);
+	color-list-tone-map: sp-color-random(('red', 'green'), ('exceptions': ('100', '200')), $palette);
 }

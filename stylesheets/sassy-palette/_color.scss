@@ -19,19 +19,19 @@
 ///   sp-color('pink', 'X')		// ()
 ///
 
-@function sp-color($name, $tone, $palette: $palette) {
+@function sp-color($name, $tone, $global-palette) {
 	@if type-of($name) == 'string' and
 	type-of($tone) == 'string' and
-	type-of($palette) == 'map' {
-		@if not map-has-key($palette, $name) {
+	type-of($global-palette) == 'map' {
+		@if not map-has-key($global-palette, $name) {
 			@warn "Color '#{$name}'' is not found";
 		}
 
-		@if not map-deep-get($palette, $name, $tone) {
+		@if not map-deep-get($global-palette, $name, $tone) {
 			@warn "Color tone '#{$tone}' is not found";
 		}
 
-		@return map-deep-get($palette, $name, $tone);
+		@return map-deep-get($global-palette, $name, $tone);
 	} @else {
 		@return null;
 	}
