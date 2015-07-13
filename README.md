@@ -1,8 +1,10 @@
 # Sassy-palette
 
-Color palette agnostic tool for designers and front-end developers. 
+Color palette agnostic tool for _designers_ and front-end developers. 
 
 Sassy-palette manages complex color palettes and simplifies design process by giving a nice API for outputting predefined or random colors and their tones. 
+
+## [Documentation](http://skoks.github.io/sassy-palette/)
 
 ## Color palettes 
 
@@ -10,8 +12,20 @@ Sassy-palette uses [Google Material Colors](http://www.google.com/design/spec/st
 
 For changing global palette, update `$palette` variable in `_sassy-palette/_config.scss`:
 
-```
     $palette: $google-material-palette;
-```
 
-## [Documentation](http://skoks.github.io/sassy-palette/)
+## Installation
+
+_Git_:
+
+    git clone git@github.com:Skoks/sassy-palette.git ./
+
+_Bower_:
+
+    bower install sassy-palette --save-dev
+
+## Requirements
+
+* Ruby Sass `v3.4`
+* LibSass `v3.2`
+
