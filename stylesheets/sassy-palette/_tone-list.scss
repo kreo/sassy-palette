@@ -12,8 +12,10 @@
 ///
 
 @function sp-tone-list($color-name, $tones-map, $tones, $global-palette) {
-	@if map-has-key($tones-map, sp-random-of($tones)) {
-		@return sp-color($color-name, sp-random-of($tones), $global-palette);
+	@if type-of($tones-map) == 'map' {
+		@if map-has-key($tones-map, sp-random-of($tones)) {
+			@return sp-color($color-name, sp-random-of($tones), $global-palette);
+		}
 	}
 	@return null;
 }
