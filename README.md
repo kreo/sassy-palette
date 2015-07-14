@@ -4,7 +4,11 @@ Color palette agnostic tool for _designers_ and front-end developers.
 
 Sassy-palette manages complex color palettes and simplifies design process by giving a nice API for outputting predefined or random colors and their tones. 
 
+## [Codepen.io Demo](http://codepen.io/Skoks/pen/waXoYY)
+
 ## [Documentation](http://skoks.github.io/sassy-palette/)
+
+## [Sassmeister Playground](http://sassmeister.com/gist/ae041ed388b87eacba0d)
 
 ## Color palettes 
 
@@ -28,4 +32,3 @@ _Bower_:
 
 * Ruby Sass `v3.4`
 * LibSass `v3.2`
-
